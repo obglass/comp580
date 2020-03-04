@@ -10,26 +10,16 @@ class Table extends Component {
       rowVal: 10,
       colVal: 10
     };
-    // this.handleRowChange = this.handleRowChange.bind(this);
-    // this.handleColChange = this.handleColChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handle = this.handle.bind(this);
+    this.handleRowChange = this.handleRowChange.bind(this);
+    this.handleColChange = this.handleColChange.bind(this);
   }
 
-  // handleRowChange(event) {
-  //   console.log(event.target.value);
-  //   this.setState({ rowVal: event.target.value });
-  //   console.log(this.state.rowVal);
-  // }
-  // handleColChange(event) {
-  //   this.setState({ colVal: event.target.value });
-  // }
-  // handle(event) {
-  //   console.log("handle" + event.target.value);
-  // }
-  // handleSubmit(event) {
-  //   console.log("submitted");
-  // }
+  handleRowChange(event) {
+    this.setState({ rowVal: event.target.value });
+  }
+  handleColChange(event) {
+    this.setState({ colVal: event.target.value });
+  }
 
   createTable = () => {
     let table = [];
@@ -37,11 +27,13 @@ class Table extends Component {
     for (let i = 0; i < this.state.rowVal; i++) {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
-        children.push(
-          <td scope="col" id="cell">
-            {10 * i + j}
-          </td>
-        );
+        if (j <= this.state.colVal) {
+          children.push(
+            <td scope="col" id="cell">
+              {this.state.colVal * i + j}
+            </td>
+          );
+        }
       }
       table.push(
         <tr scope="row" id="indRow">
@@ -61,40 +53,25 @@ class Table extends Component {
           {this.createTable()}
         </table>
 
-        {/* <form onSubmit={this.handleSubmit}>
-          <label>
-            Rows:{" "}
-            <input
-              type="text"
-              value={this.state.rowVal}
-              onChange={this.handle}
-              // onSubmit={this.handleRowChange}
-            />{" "}
-          </label>
-          <label>
-            Columns:{" "}
-            <input
-              type="text"
-              value={this.state.colVal}
-              onChange={this.handleColChange}
-              // onSubmit={this.handleColChange}
-            />{" "}
-          </label>
-          <input type="submit" value="Submit" />
-        </form> */}
+        <label>
+          Rows:{" "}
+          <input
+            type="text"
+            value={this.state.rowVal}
+            onChange={this.handleRowChange}
+          />{" "}
+        </label>
+        <label>
+          Columns:{" "}
+          <input
+            type="text"
+            value={this.state.colVal}
+            onChange={this.handleColChange}
+          />
+        </label>
       </div>
     );
   }
 }
 
 export default Table;
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">HELLOOO world from liv</header>
-//     </div>
-//   );
-// }
-
-// export default App;
