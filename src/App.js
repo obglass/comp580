@@ -1,40 +1,88 @@
 import React from "react";
-// import logo from "./logo.svg";
 import "./App.css";
-import "./btn-group.css";
+import { Component } from "react";
+import "./keypad.css";
 
-function App() {
-  return (
-    <body>
-      {/* <script src="./grid.js"></script> */}
-      {/* <var></var> */}
-      <td>
-        <th aria-label="1">1</th>
-        <th aria-label="2">2</th>
-        <th aria-label="3">3</th>
-        <th aria-label="4">4</th>
-        <th aria-label="5">5</th>
-        <th aria-label="6">6</th>
-        <th aria-label="7">7</th>
-        <th aria-label="8">8</th>
-        <th aria-label="9">9</th>
-        <th aria-label="10">10</th>
-      </td>
-      <br></br>
-      <div class="btn-group">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>10</button>
+class Table extends Component {
+  constructor(props) {
+    super(props); //since we are extending class Table so we have to use super in order to override Component class constructor
+
+    this.state = {
+      rowVal: 10,
+      colVal: 10
+    };
+    // this.handleRowChange = this.handleRowChange.bind(this);
+    // this.handleColChange = this.handleColChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handle = this.handle.bind(this);
+  }
+
+  // handleRowChange(event) {
+  //   console.log(event.target.value);
+  //   this.setState({ rowVal: event.target.value });
+  //   console.log(this.state.rowVal);
+  // }
+  // handleColChange(event) {
+  //   this.setState({ colVal: event.target.value });
+  // }
+  // handle(event) {
+  //   console.log("handle" + event.target.value);
+  // }
+  // handleSubmit(event) {
+  //   console.log("submitted");
+  // }
+
+  createTable = () => {
+    var rand = Math.floor(Math.random() * 100) + 1;
+    let table = [];
+
+    for (let i = 0; i < this.state.rowVal; i++) {
+      let children = [];
+      for (let j = 1; j < this.state.colVal + 1; j++) {
+        if (10 * i + j === rand) {
+          children.push(
+            <button href="./enternum.js" scope="col" id="cell">
+              missing number
+            </button>
+          );
+        } else {
+          children.push(
+            <td scope="col" id="cell">
+              {10 * i + j}
+            </td>
+          );
+        }
+      }
+      table.push(
+        <tr scope="row" id="indRow">
+          {children}
+        </tr>
+      );
+    }
+    return table;
+  };
+
+  render() {
+    //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
+    return (
+      <div>
+        <table>
+          <caption id="title">Hundreds Chart</caption>
+          {this.createTable()}
+        </table>
       </div>
-    </body>
-  );
+    );
+  }
 }
 
-export default App;
+export default Table;
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">HELLOOO world from liv</header>
+//     </div>
+//   );
+// }
+
+// export default App;
