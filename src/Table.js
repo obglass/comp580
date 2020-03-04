@@ -47,28 +47,30 @@ class Table extends Component {
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
     return (
-      <div>
-        <table>
-          <caption id="title">Hundreds Chart</caption>
-          {this.createTable()}
-        </table>
+      <div id="outer-div">
+        <div id="inner-div">
+          <table>
+            <caption id="title">Hundreds Chart</caption>
+            {this.createTable()}
+          </table>
 
-        <label>
-          Rows:{" "}
-          <input
-            type="text"
-            value={this.state.rowVal}
-            onChange={this.handleRowChange}
-          />{" "}
-        </label>
-        <label>
-          Columns:{" "}
-          <input
-            type="text"
-            value={this.state.colVal}
-            onChange={this.handleColChange}
-          />
-        </label>
+          <label>
+            Rows:{" "}
+            <input
+              type="text"
+              value={this.state.rowVal}
+              onChange={this.handleRowChange}
+            />{" "}
+          </label>
+          <label>
+            Columns:{" "}
+            <input
+              type="text"
+              value={this.state.colVal}
+              onChange={this.handleColChange}
+            />
+          </label>
+        </div>
       </div>
     );
   }
