@@ -37,11 +37,15 @@ class Table extends Component {
     for (let i = 0; i < this.state.rowVal; i++) {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
-        children.push(<td id="cell">{10 * i + j}</td>);
+        children.push(
+          <td scope="col" id="cell">
+            {10 * i + j}
+          </td>
+        );
       }
       table.push(
-        <tr id="indRow">
-          <th scope="row">{children}</th>
+        <tr scope="row" id="indRow">
+          {children}
         </tr>
       );
     }
@@ -54,7 +58,7 @@ class Table extends Component {
       <div>
         <table>
           <caption id="title">Hundreds Chart</caption>
-          <tbody>{this.createTable()}</tbody>
+          {this.createTable()}
         </table>
 
         {/* <form onSubmit={this.handleSubmit}>
