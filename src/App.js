@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { Component } from "react";
-import "./keypad.css";
 
 class Table extends Component {
   constructor(props) {
@@ -11,10 +10,15 @@ class Table extends Component {
       rowVal: 10,
       colVal: 10
     };
-    // this.handleRowChange = this.handleRowChange.bind(this);
-    // this.handleColChange = this.handleColChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handle = this.handle.bind(this);
+    this.handleRowChange = this.handleRowChange.bind(this);
+    this.handleColChange = this.handleColChange.bind(this);
+  }
+
+  handleRowChange(event) {
+    this.setState({ rowVal: event.target.value });
+  }
+  handleColChange(event) {
+    this.setState({ colVal: event.target.value });
   }
 
   // handleRowChange(event) {
@@ -33,24 +37,27 @@ class Table extends Component {
   // }
 
   createTable = () => {
-    var rand = Math.floor(Math.random() * 100) + 1;
+    var rand =
+      Math.floor(Math.random() * (this.state.rowVal * this.state.colVal)) + 1;
     let table = [];
 
     for (let i = 0; i < this.state.rowVal; i++) {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
-        if (10 * i + j === rand) {
-          children.push(
-            <button href="./enternum.js" scope="col" id="cell">
-              missing number
-            </button>
-          );
-        } else {
-          children.push(
-            <td scope="col" id="cell">
-              {10 * i + j}
-            </td>
-          );
+        if (j <= this.state.colVal) {
+          if (10 * i + j === rand) {
+            children.push(
+              <button href="./enternum.js" scope="col" id="cell">
+                missing number
+              </button>
+            );
+          } else {
+            children.push(
+              <td scope="col" id="cell">
+                {this.state.colVal * i + j}
+              </td>
+            );
+          }
         }
       }
       table.push(
@@ -65,11 +72,30 @@ class Table extends Component {
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
     return (
-      <div>
-        <table>
-          <caption id="title">Hundreds Chart</caption>
-          {this.createTable()}
-        </table>
+      <div id="outer-div">
+        <div id="inner-div">
+          <table>
+            <caption id="title">Hundreds Chart</caption>
+            {this.createTable()}
+          </table>
+
+          <label>
+            Rows:{" "}
+            <input
+              type="text"
+              value={this.state.rowVal}
+              onChange={this.handleRowChange}
+            />{" "}
+          </label>
+          <label>
+            Columns:{" "}
+            <input
+              type="text"
+              value={this.state.colVal}
+              onChange={this.handleColChange}
+            />
+          </label>
+        </div>
       </div>
     );
   }
