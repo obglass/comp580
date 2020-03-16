@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import { Component } from "react";
 
-class Table extends Component {
+/* can probably extend Table and add code to it, instead of copying it all */
+class MissingNumberGame extends Component {
   constructor(props) {
     super(props); //since we are extending class Table so we have to use super in order to override Component class constructor
 
@@ -22,29 +23,37 @@ class Table extends Component {
   }
 
   createTable = () => {
-    var rand =Math.floor(Math.random() * (this.state.rowVal * this.state.colVal)) + 1;
-    let table = [];
+      var rand =Math.floor(Math.random() * (this.state.rowVal * this.state.colVal)) + 1;
+      let table = [];
 
-    for (let i = 0; i < this.state.rowVal; i++) {
-      let children = [];
-      for (let j = 1; j < this.state.colVal + 1; j++) {
-        if (j <= this.state.colVal) {
-          
-          children.push(
-            <td scope="col" id="cell">
-              {this.state.colVal * i + j}
-            </td>
-          );
-        
-      }
-      }
-      table.push(
+      for (let i = 0; i < this.state.rowVal; i++) {
+        let children = [];
+        for (let j = 1; j < this.state.colVal + 1; j++) {
+            if (j <= this.state.colVal) {
+                if (10 * i + j === rand) {
+                    children.push(
+                   <td scope="col" id="cell" class="missingNumber">
+                    ?
+                   </td>
+                    );
+                } else {
+                    children.push(
+                    <td scope="col" id="cell">
+                    {this.state.colVal * i + j}
+                    </td>
+                    );
+                }
+            }
+        }
+        table.push(
         <tr scope="row" id="indRow">
-          {children}
+        {children}
         </tr>
-      );
-    }
-    return table;
+        );
+     }
+     return table;
+
+      
   };
 
   render() {
@@ -81,4 +90,4 @@ class Table extends Component {
   }
 }
 
-export default Table;
+export default MissingNumberGame;
