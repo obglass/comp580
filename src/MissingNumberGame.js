@@ -32,9 +32,9 @@ class MissingNumberGame extends Component {
             if (j <= this.state.colVal) {
                 if (10 * i + j === rand) {
                     children.push(
-                   <button href="./enternum.js" scope="col" id="cell">
-                    missing number
-                    </button>
+                   <td scope="col" id="cell" class="missingNumber">
+                    ?
+                   </td>
                     );
                 } else {
                     children.push(
@@ -90,4 +90,4 @@ class MissingNumberGame extends Component {
   }
 }
 
-export default Table;
+export default MissingNumberGame;
