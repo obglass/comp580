@@ -54,10 +54,11 @@ class Table extends Component {
             {this.createTable()}
           </table>
 
+          <div class="diyTable">
           <label>
             Rows:{" "}
             <input
-              type="text"
+              type="text" class="inputBox"
               value={this.state.rowVal}
               onChange={this.handleRowChange}
             />{" "}
@@ -65,11 +66,12 @@ class Table extends Component {
           <label>
             Columns:{" "}
             <input
-              type="text"
+              type="text" class="inputBox"
               value={this.state.colVal}
               onChange={this.handleColChange}
             />
           </label>
+          </div>
         </div>
       </div>
     );
