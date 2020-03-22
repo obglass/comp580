@@ -23,15 +23,17 @@ class MissingNumberGame extends Component {
   }
 
   createTable = () => {
-    var rand =
-      Math.floor(Math.random() * (this.state.rowVal * this.state.colVal)) + 1;
+    var rand = Math.floor(
+      Math.random() * (this.state.rowVal * this.state.colVal) + 1
+    );
     let table = [];
+    table.push(rand);
 
     for (let i = 0; i < this.state.rowVal; i++) {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
         if (j <= this.state.colVal) {
-          if (10 * i + j === rand) {
+          if (this.state.colVal * i + j === rand) {
             children.push(
               <td id="cell" class="missingNumber">
                 ?
