@@ -22,27 +22,16 @@ class Table extends Component {
   }
 
   createTable = () => {
-    var rand =Math.floor(Math.random() * (this.state.rowVal * this.state.colVal)) + 1;
     let table = [];
 
     for (let i = 0; i < this.state.rowVal; i++) {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
         if (j <= this.state.colVal) {
-          
-          children.push(
-            <td scope="col" id="cell">
-              {this.state.colVal * i + j}
-            </td>
-          );
-        
+          children.push(<td id="cell">{this.state.colVal * i + j}</td>);
+        }
       }
-      }
-      table.push(
-        <tr scope="row" id="indRow">
-          {children}
-        </tr>
-      );
+      table.push(<tr id="indRow">{children}</tr>);
     }
     return table;
   };
@@ -57,11 +46,10 @@ class Table extends Component {
             {this.createTable()}
           </table>
 
-          <div class="diyTable">
           <label>
             Rows:{" "}
             <input
-              type="text" class="inputBox"
+              type="text"
               value={this.state.rowVal}
               onChange={this.handleRowChange}
             />{" "}
@@ -69,12 +57,11 @@ class Table extends Component {
           <label>
             Columns:{" "}
             <input
-              type="text" class="inputBox"
+              type="text"
               value={this.state.colVal}
               onChange={this.handleColChange}
             />
           </label>
-          </div>
         </div>
       </div>
     );

@@ -15,7 +15,7 @@ const Navigation = () => {
       <NavLink id="nav" to="/missingnumbergame">
         Missing Number Game
       </NavLink>
-      <NavLink id="nav" to="/table">
+      <NavLink id="nav" to="/completetablegame">
         Complete the Table Game
       </NavLink>
     </Navbar>

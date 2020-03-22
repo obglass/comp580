@@ -6,6 +6,7 @@ import Home from "./Home";
 import Error from "./Error";
 import Navigation from "./Navigation";
 import MissingNumberGame from "./MissingNumberGame";
+import CompleteTableGame from "./CompleteTableGame";
 
 class AppControl extends Component {
   render() {
@@ -17,7 +18,7 @@ class AppControl extends Component {
             <Route path="/" component={Home} exact />
             <Route path="/table" component={Table} />
             <Route path="/missingnumbergame" component={MissingNumberGame} />
-            <Route path="/completetablegame" component={Table} />
+            <Route path="/completetablegame" component={CompleteTableGame} />
             <Route component={Error} />
           </Switch>
         </div>

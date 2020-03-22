@@ -3,7 +3,7 @@ import "./App.css";
 import { Component } from "react";
 
 /* can probably extend Table and add code to it, instead of copying it all */
-class MissingNumberGame extends Component {
+class CompleteTableGame extends Component {
   constructor(props) {
     super(props); //since we are extending class Table so we have to use super in order to override Component class constructor
 
@@ -27,13 +27,39 @@ class MissingNumberGame extends Component {
       Math.floor(Math.random() * (this.state.rowVal * this.state.colVal)) + 1;
     let table = [];
 
+    var above = rand - 10;
+    var below = rand + 10;
+    var left = rand - 1;
+    var right = rand + 1;
+
+    // takes out right ? for random number on right edge- DO WE WANT THIS
+    if (rand % this.state.colVal === 0) {
+      right = null;
+    }
+    // takes out left ? for random number on left edge
+    if (left % this.state.colVal === 0) {
+      left = null;
+    }
+
     for (let i = 0; i < this.state.rowVal; i++) {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
         if (j <= this.state.colVal) {
-          if (10 * i + j === rand) {
+          if (
+            (10 * i + j === above) |
+            (10 * i + j === below) |
+            (10 * i + j === left) |
+            (10 * i + j === right)
+          ) {
+            // if (10 * i + j == above) {
+            //     children.push(
+            //         <td id="cell" class="missingNumber">
+            //           ?
+            //         </td>
+            //       );
+            // }
             children.push(
-              <td id="cell" class="missingNumber">
+              <td id="cell" caption="missing number" class="missingNumber">
                 ?
               </td>
             );
@@ -44,6 +70,7 @@ class MissingNumberGame extends Component {
       }
       table.push(<tr id="indRow">{children}</tr>);
     }
+
     return table;
   };
 
@@ -83,4 +110,4 @@ class MissingNumberGame extends Component {
   }
 }
 
-export default MissingNumberGame;
+export default CompleteTableGame;
