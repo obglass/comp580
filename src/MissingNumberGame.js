@@ -1,6 +1,18 @@
 import React from "react";
 import "./App.css";
 import { Component } from "react";
+/*import {View} from "react-native"
+
+type Props= {
+  onMagicTap:any
+};
+
+const view_container = (props: Props)=> (
+  <View
+    onMagicTap={props.onMagicTap}>
+      {props.children}
+    </View>
+);*/
 
 /* can probably extend Table and add code to it, instead of copying it all */
 class MissingNumberGame extends Component {
@@ -52,6 +64,7 @@ class MissingNumberGame extends Component {
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
     return (
+      
       <div id="outer-div">
         <div id="inner-div">
           <table>
