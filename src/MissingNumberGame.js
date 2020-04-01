@@ -1,20 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Component } from "react";
-/*import {View} from "react-native"
 
-type Props= {
-  onMagicTap:any
-};
-
-const view_container = (props: Props)=> (
-  <View
-    onMagicTap={props.onMagicTap}>
-      {props.children}
-    </View>
-);*/
-
-/* can probably extend Table and add code to it, instead of copying it all */
 class MissingNumberGame extends Component {
   constructor(props) {
     super(props); //since we are extending class Table so we have to use super in order to override Component class constructor
@@ -54,10 +41,10 @@ class MissingNumberGame extends Component {
     // this.renderBool = true;
     var userGuessNum = parseInt(this.state.userGuess, 10);
     if (userGuessNum === this.rand) {
-      alert("Congrats! Your Guess:" + this.state.userGuess);
+      alert("Congrats, " + this.state.userGuess + " is the missing number!");
       // this.render();
     } else {
-      alert("Try Again");
+      alert("Sorry, " + this.state.userGuess + " isn't the missing number. Try Again");
     }
     // document.write(this.rand);
     // document.write(this.state.userGuess);
@@ -110,14 +97,31 @@ class MissingNumberGame extends Component {
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
     return (
-      
       <div id="outer-div">
         <div id="inner-div">
           <table>
-            <caption id="title">Hundreds Chart</caption>
+            <caption id="title">Find the Missing Number</caption>
             {this.makeRandom()}
             {this.createTable()}
           </table>
+          <div class="guess">
+            <form onSubmit={this.handleSubmit}>
+              <input
+                aria-label="Input guess here"
+                type="number"
+                class="inputBox"
+                pattern="[1-100]*"
+                value={this.state.userGuess}
+                onChange={this.handleUserGuess}
+              />
+              <input type="submit" value="Submit Guess" />
+            </form>
+          </div>
+          <div class="newGame">
+            <td class="newGameBtn" text-align="center" >
+              <a href="\missingnumbergame" class="newGameTxt">NEW GAME</a>
+            </td>
+          </div>
           <div class="diyTable">
             <label>
               Rows:{" "}
@@ -138,25 +142,11 @@ class MissingNumberGame extends Component {
               />
             </label>
           </div>
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuess}
-                onChange={this.handleUserGuess}
-              />
-              <input type="submit" value="Submit Guess" />
-            </form>
-          </div>
-          <div>
-            <td id="cell" text-align="center">
-              <a href="\missingnumbergame">NEW GAME</a>
-            </td>
-          </div>
+          
+          
         </div>
       </div>
+      
     );
   }
 }
