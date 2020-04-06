@@ -103,6 +103,13 @@ class CompleteTableGame extends Component {
     event.preventDefault();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.renderBool === false) {
+      return false;
+    }
+    return true;
+  }
+
   makeRandom = () => {
     this.rand = Math.floor(
       Math.random() * (this.state.rowVal * this.state.colVal) + 1
@@ -233,10 +240,32 @@ class CompleteTableGame extends Component {
                 class="inputBox"
                 pattern="[1-100]*"
                 value={this.state.userGuessAbove}
-                onChange={this.handleUserGuessAbove}
+                // onChange={this.handleUserGuessAbove}
               />
+              <input
+                type="number"
+                class="inputBox"
+                pattern="[1-100]*"
+                value={this.state.userGuessBelow}
+                // onChange={this.handleUserGuessBelow}
+              />
+              <input
+                type="number"
+                class="inputBox"
+                pattern="[1-100]*"
+                value={this.state.userGuessLeft}
+                // onChange={this.handleUserGuessLeft}
+              />
+              <input
+                type="number"
+                class="inputBox"
+                pattern="[1-100]*"
+                value={this.state.userGuessRight}
+                // onChange={this.handleUserGuessRight}
+              />
+              <input type="submit" value="Submit Guess" />
             </form>
-            <form onSubmit={this.handleSubmit}>
+            {/* <form onSubmit={this.handleSubmit}>
               <input
                 type="number"
                 class="inputBox"
@@ -263,7 +292,7 @@ class CompleteTableGame extends Component {
                 onChange={this.handleUserGuessRight}
               />
               <input type="submit" value="Submit Guess" />
-            </form>
+            </form> */}
           </div>
           <div>
             <td id="cell" text-align="center">

@@ -44,7 +44,11 @@ class MissingNumberGame extends Component {
       alert("Congrats, " + this.state.userGuess + " is the missing number!");
       // this.render();
     } else {
-      alert("Sorry, " + this.state.userGuess + " isn't the missing number. Try Again");
+      alert(
+        "Sorry, " +
+          this.state.userGuess +
+          " isn't the missing number. Try Again"
+      );
     }
     // document.write(this.rand);
     // document.write(this.state.userGuess);
@@ -118,8 +122,10 @@ class MissingNumberGame extends Component {
             </form>
           </div>
           <div class="newGame">
-            <td class="newGameBtn" text-align="center" >
-              <a href="\missingnumbergame" class="newGameTxt">NEW GAME</a>
+            <td class="newGameBtn" text-align="center">
+              <a href="\missingnumbergame" class="newGameTxt">
+                NEW GAME
+              </a>
             </td>
           </div>
           <div class="diyTable">
@@ -142,11 +148,8 @@ class MissingNumberGame extends Component {
               />
             </label>
           </div>
-          
-          
         </div>
       </div>
-      
     );
   }
 }
