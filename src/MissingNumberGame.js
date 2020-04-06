@@ -40,6 +40,11 @@ class MissingNumberGame extends Component {
     // alert("00" + this.rand + "00" + this.state.userGuess + "00");
     // this.renderBool = true;
     var userGuessNum = parseInt(this.state.userGuess, 10);
+    if (userGuessNum == null) //this isn't working 
+    {
+      alert("You did not make a guess.");
+    }
+    else {
     if (userGuessNum === this.rand) {
       alert("Congrats, " + this.state.userGuess + " is the missing number!");
       
@@ -47,6 +52,7 @@ class MissingNumberGame extends Component {
     } else {
       alert("Sorry, " + this.state.userGuess + " isn't the missing number. Try Again");
     }
+  }
     // document.write(this.rand);
     // document.write(this.state.userGuess);
     event.preventDefault();
@@ -81,8 +87,8 @@ class MissingNumberGame extends Component {
         if (j <= this.state.colVal) {
           if (this.state.colVal * i + j === this.rand) {
             children.push(
-              <td onclick="guess();" id="cell" class="missingNumber">
-                ?
+              <td id="cell" class="missingNumber">
+                <button onClick="promptAnswer">?</button>
               </td>
             );
           } else {
@@ -94,6 +100,20 @@ class MissingNumberGame extends Component {
     }
     return table;
   };
+
+  promptAnswer = () => {
+    var ans=5; 
+    console.log("clicked button");
+    var myGuess=prompt("Enter the missing number");
+    if (myGuess === ans)
+    {
+      alert("Congrats, "+ myGuess +" is the missing number!");
+    }
+    else 
+    {
+      alert("Sorry, " + myGuess + " is not the missing number. Try again.");
+    }
+  }
 
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
