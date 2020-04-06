@@ -55,6 +55,12 @@
   color:white;
 }
 
+.bottomBar {
+  display:flex;
+  justify-content: space-around;
+  padding:5px;
+}
+
 .newGameBtn {
   background-color:black;
   width:100px;
@@ -67,10 +73,12 @@
   text-decoration: none;
 }
 
-.guess {
-  text-align:left;
-  padding:2%;
+.instructions {
+  padding:10px; 
 }
+
+
+
 /* for phone screens (used chrome dev tools to get it for 5/6/7 PLUS, and X) */
 @media screen and (max-width:414px) {
   #navbar {
@@ -88,6 +96,9 @@
  /* .diyTable {
     font-size:20px;
   }*/
+  .guess {
+    padding-top:10px;
+  }
   .inputBox {
     width:50px;
   }
@@ -108,5 +119,18 @@
   .inputBox {
     font-size:20px;
   }
-
+  .submitBtn {
+    font-size:20px;
+  }
+  .newGameBtn {
+    background-color:black;
+    width:160px;
+    height:40px;
+    line-height:2.5em;
+  }
+  .newGameTxt {
+    color:white;
+    text-decoration: none;
+    font-size:25px;
+  }
 }

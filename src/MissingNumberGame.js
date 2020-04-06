@@ -42,6 +42,7 @@ class MissingNumberGame extends Component {
     var userGuessNum = parseInt(this.state.userGuess, 10);
     if (userGuessNum === this.rand) {
       alert("Congrats, " + this.state.userGuess + " is the missing number!");
+      
       // this.render();
     } else {
       alert("Sorry, " + this.state.userGuess + " isn't the missing number. Try Again");
@@ -104,24 +105,27 @@ class MissingNumberGame extends Component {
             {this.makeRandom()}
             {this.createTable()}
           </table>
-          <div class="guess">
-            <form onSubmit={this.handleSubmit}>
-              <input
-                aria-label="Input guess here"
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuess}
-                onChange={this.handleUserGuess}
-              />
-              <input type="submit" value="Submit Guess" />
-            </form>
+          <div class="bottomBar">
+            <div class="guess">
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  aria-label="Input guess here"
+                  type="number"
+                  class="inputBox"
+                  pattern="[1-100]*"
+                  value={this.state.userGuess}
+                  onChange={this.handleUserGuess}
+                />
+                <input type="submit" value="Submit Guess" class="submitBtn" />
+              </form>
+            </div>
+            <div class="newGame">
+              <td class="newGameBtn" text-align="center" >
+                <a href="\missingnumbergame" class="newGameTxt">NEW GAME</a>
+              </td>
+            </div>
           </div>
-          <div class="newGame">
-            <td class="newGameBtn" text-align="center" >
-              <a href="\missingnumbergame" class="newGameTxt">NEW GAME</a>
-            </td>
-          </div>
+
           <div class="diyTable">
             <label>
               Rows:{" "}
