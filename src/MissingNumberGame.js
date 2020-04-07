@@ -14,8 +14,9 @@ class MissingNumberGame extends Component {
     this.handleRowChange = this.handleRowChange.bind(this);
     this.handleColChange = this.handleColChange.bind(this);
     this.handleUserGuess = this.handleUserGuess.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleRandom = this.handleRandom.bind(this);
+    this.promptAnswer = this.promptAnswer.bind(this);
     this.rand = 0;
     this.renderBool = true;
   }
@@ -31,33 +32,7 @@ class MissingNumberGame extends Component {
     this.setState({ userGuess: event.target.value });
     // event.preventDefault();
   }
-  handleSubmit(event) {
-    //this.submitBool = true;
-    // this.push(this.state.userGuess);
-    // this.push(this.rand);
-    // document.write(this.state.userGuess);
-    // document.write(this.rand);
-    // alert("00" + this.rand + "00" + this.state.userGuess + "00");
-    // this.renderBool = true;
-    var userGuessNum = parseInt(this.state.userGuess, 10);
-    if (userGuessNum === this.rand) {
-      alert("Congrats, " + this.state.userGuess + " is the missing number!");
-      
-      // this.render();
-    } else {
-      alert("Sorry, " + this.state.userGuess + " isn't the missing number. Try Again");
-    }
-    // document.write(this.rand);
-    // document.write(this.state.userGuess);
-    event.preventDefault();
-  }
-  // handleRandom() {
-  //   this.setState({
-  //     rand: Math.floor(
-  //       Math.random() * (this.state.rowVal * this.state.colVal) + 1
-  //     )
-  //   });
-  // }
+  
 
   shouldComponentUpdate(nextProps, nextState) {
     if (this.renderBool === false) {
@@ -81,8 +56,8 @@ class MissingNumberGame extends Component {
         if (j <= this.state.colVal) {
           if (this.state.colVal * i + j === this.rand) {
             children.push(
-              <td onclick="guess();" id="cell" class="missingNumber">
-                ?
+              <td id="cell" class="missingNumber">
+               <button onClick={this.promptAnswer}>?</button>
               </td>
             );
           } else {
@@ -95,6 +70,32 @@ class MissingNumberGame extends Component {
     return table;
   };
 
+  promptAnswer = () => {
+    var myGuess=prompt("Enter the missing number");
+    if(myGuess == null)
+    {
+      alert("You did not submit a guess.");
+    }
+    else 
+    {
+      if (myGuess === this.rand.toString())
+      {
+        alert("Congrats, "+ myGuess +" is the missing number!");
+      }
+      else
+      {
+        if(myGuess === "")
+        {
+          alert("You did not enter a number.");
+        }
+        else 
+        {
+          alert("Sorry, " + myGuess + " is not the missing number. Try again.");
+        }
+      }
+    }
+    };
+
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
     return (
@@ -105,26 +106,12 @@ class MissingNumberGame extends Component {
             {this.makeRandom()}
             {this.createTable()}
           </table>
-          <div class="bottomBar">
-            <div class="guess">
-              <form onSubmit={this.handleSubmit}>
-                <input
-                  aria-label="Input guess here"
-                  type="number"
-                  class="inputBox"
-                  pattern="[1-100]*"
-                  value={this.state.userGuess}
-                  onChange={this.handleUserGuess}
-                />
-                <input type="submit" value="Submit Guess" class="submitBtn" />
-              </form>
-            </div>
+
             <div class="newGame">
               <td class="newGameBtn" text-align="center" >
                 <a href="\missingnumbergame" class="newGameTxt">NEW GAME</a>
               </td>
             </div>
-          </div>
 
           <div class="diyTable">
             <label>
@@ -146,8 +133,6 @@ class MissingNumberGame extends Component {
               />
             </label>
           </div>
-          
-          
         </div>
       </div>
       

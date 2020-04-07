@@ -10,10 +10,10 @@ class CompleteTableGame extends Component {
     this.state = {
       rowVal: 10,
       colVal: 10,
-      userGuessAbove: null,
-      userGuessBelow: null,
-      userGuessRight: null,
-      userGuessLeft: null
+      //userGuessAbove: null,
+     // userGuessBelow: null,
+      //userGuessRight: null,
+     // userGuessLeft: null
     };
 
     this.handleRowChange = this.handleRowChange.bind(this);
@@ -38,7 +38,7 @@ class CompleteTableGame extends Component {
     this.setState({ colVal: event.target.value });
   }
 
-  handleUserGuessAbove(event) {
+  /*handleUserGuessAbove(event) {
     this.renderBool = false;
     this.setState({ userGuessAbove: event.target.value });
     // event.preventDefault();
@@ -59,7 +59,7 @@ class CompleteTableGame extends Component {
     // event.preventDefault();
   }
 
-  handleSubmit(event) {
+  /*handleSubmit(event) {
     var userGuessAboveNum = parseInt(this.state.userGuessAbove, 10);
     var userGuessBelowNum = parseInt(this.state.userGuessBelow, 10);
     var userGuessLeftNum = parseInt(this.state.userGuessLeft, 10);
@@ -101,7 +101,7 @@ class CompleteTableGame extends Component {
     // document.write(this.rand);
     // document.write(this.state.userGuess);
     event.preventDefault();
-  }
+  }*/
 
   makeRandom = () => {
     this.rand = Math.floor(
@@ -175,7 +175,7 @@ class CompleteTableGame extends Component {
           ) {
             children.push(
               <td id="cell" caption="missing number" class="missingNumber">
-                ?
+                <button onClick={this.promptAnswer}>?</button>
               </td>
             );
           } else {
@@ -189,13 +189,99 @@ class CompleteTableGame extends Component {
     return table;
   };
 
+  promptAnswer = () => {
+    var myGuess=prompt("Enter the missing number");
+    if(myGuess == null)
+    {
+      alert("You did not submit a guess.");
+    }
+    else 
+    {
+      if(this.above != null)
+      {
+        if (myGuess === this.above.toString())    
+        {
+          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
+        }
+        else
+        {
+          if(myGuess === "")
+          {
+            alert("You did not enter a number.");
+          }
+          else 
+          {
+            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
+          }
+        }
+      }
+
+      if(this.below != null)
+      {
+        if (myGuess === this.below.toString())    
+        {
+          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
+        }
+        else
+        {
+          if(myGuess === "")
+          {
+            alert("You did not enter a number.");
+          }
+          else 
+          {
+            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
+          }
+        }
+      }
+
+      if(this.left != null)
+      {
+        if (myGuess === this.left.toString()) 
+        {
+          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
+        }
+        else
+        {
+          if(myGuess === "")
+          {
+            alert("You did not enter a number.");
+          }
+          else 
+          {
+            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
+          }
+        }
+      }
+
+      if(this.right != null)
+      {
+        if (myGuess === this.right.toString())   
+        {
+          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
+        }
+        else
+        {
+          if(myGuess === "")
+          {
+            alert("You did not enter a number.");
+          }
+          else 
+          {
+            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
+          }
+        }
+      }
+    }
+    };
+
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
     return (
       <div id="outer-div">
         <div id="inner-div">
           <table>
-            <caption id="title">Hundreds Chart</caption>
+            <caption id="title">Find the Missing Numbers</caption>
             {this.makeRandom()}
             {this.makeMissingNumbers()}
             {/* <label>{this.rand + "00"}</label>
@@ -205,6 +291,12 @@ class CompleteTableGame extends Component {
             <label>{this.right + "00"}</label> */}
             {this.createTable()}
           </table>
+
+          <div class="newGame">
+            <td class="newGameBtn" text-align="center" >
+              <a href="\completetablegame" class="newGameTxt">NEW GAME</a>
+            </td>
+          </div>
 
           <div class="diyTable">
             <label>
@@ -226,50 +318,8 @@ class CompleteTableGame extends Component {
               />
             </label>
           </div>
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessAbove}
-                onChange={this.handleUserGuessAbove}
-              />
-            </form>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessBelow}
-                onChange={this.handleUserGuessBelow}
-              />
-            </form>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessLeft}
-                onChange={this.handleUserGuessLeft}
-              />
-            </form>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessRight}
-                onChange={this.handleUserGuessRight}
-              />
-              <input type="submit" value="Submit Guess" />
-            </form>
-          </div>
-          <div>
-            <td id="cell" text-align="center">
-              <a href="\completetablegame">NEW GAME</a>
-            </td>
-          </div>
+          
+          
         </div>
       </div>
     );

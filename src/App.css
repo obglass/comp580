@@ -55,10 +55,9 @@
   color:white;
 }
 
-.bottomBar {
-  display:flex;
-  justify-content: space-around;
+.newGame {
   padding:5px;
+  padding-left:35%;
 }
 
 .newGameBtn {
