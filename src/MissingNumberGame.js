@@ -81,6 +81,7 @@ class MissingNumberGame extends Component {
       if (myGuess === this.rand.toString())
       {
         alert("Congrats, "+ myGuess +" is the missing number!");
+       
       }
       else
       {
