@@ -167,18 +167,44 @@ class CompleteTableGame extends Component {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
         if (j <= this.state.colVal) {
-          if (
-            (colNum * i + j === this.above) |
-            (colNum * i + j === this.below) |
-            (colNum * i + j === this.left) |
-            (colNum * i + j === this.right)
-          ) {
+
+          if ((colNum * i + j === this.above))
+          {
             children.push(
-              <td id="cell" caption="missing number" class="missingNumber">
-                <button onClick={this.promptAnswer}>?</button>
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerAbove}>?</button>
               </td>
             );
-          } else {
+          }
+          else if ((colNum * i + j === this.below))
+          {
+            children.push(
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerBelow}>?</button>
+              </td>
+            );
+          }
+
+          else if ((colNum * i + j === this.left))
+          {
+            children.push(
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerLeft}>?</button>
+              </td>
+            );
+          }
+          
+          else if ((colNum * i + j === this.right))
+          {
+            children.push(
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerRight}>?</button>
+              </td>
+            );
+          }
+
+          else 
+          {
             children.push(<td id="cell">{colNum * i + j}</td>);
           }
         }
@@ -189,7 +215,7 @@ class CompleteTableGame extends Component {
     return table;
   };
 
-  promptAnswer = () => {
+  promptAnswerAbove = () => {
     var myGuess=prompt("Enter the missing number");
     if(myGuess == null)
     {
@@ -197,83 +223,101 @@ class CompleteTableGame extends Component {
     }
     else 
     {
-      if(this.above != null)
+      if (myGuess === this.above.toString())
       {
-        if (myGuess === this.above.toString())    
-        {
-          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
-        }
-        else
-        {
-          if(myGuess === "")
-          {
-            alert("You did not enter a number.");
-          }
-          else 
-          {
-            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
-          }
-        }
+        alert("Congrats, "+ myGuess +" is this missing number!");
       }
-
-      if(this.below != null)
+      else
       {
-        if (myGuess === this.below.toString())    
+        if(myGuess === "")
         {
-          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
+          alert("You did not enter a number.");
         }
-        else
+        else 
         {
-          if(myGuess === "")
-          {
-            alert("You did not enter a number.");
-          }
-          else 
-          {
-            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
-          }
-        }
-      }
-
-      if(this.left != null)
-      {
-        if (myGuess === this.left.toString()) 
-        {
-          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
-        }
-        else
-        {
-          if(myGuess === "")
-          {
-            alert("You did not enter a number.");
-          }
-          else 
-          {
-            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
-          }
-        }
-      }
-
-      if(this.right != null)
-      {
-        if (myGuess === this.right.toString())   
-        {
-          alert("Congrats, "+ myGuess +" is one of the missing numbers!");
-        }
-        else
-        {
-          if(myGuess === "")
-          {
-            alert("You did not enter a number.");
-          }
-          else 
-          {
-            alert("Sorry, " + myGuess + " is not one of the missing numbers. Try again.");
-          }
+          alert("Sorry, " + myGuess + " is not this missing number. Try again.");
         }
       }
     }
     };
+
+    promptAnswerBelow = () => {
+      var myGuess=prompt("Enter the missing number");
+      if(myGuess == null)
+      {
+        alert("You did not submit a guess.");
+      }
+      else 
+      {
+        if (myGuess === this.below.toString())
+        {
+          alert("Congrats, "+ myGuess +" is this missing number!");
+        }
+        else
+        {
+          if(myGuess === "")
+          {
+            alert("You did not enter a number.");
+          }
+          else 
+          {
+            alert("Sorry, " + myGuess + " is not this missing number. Try again.");
+          }
+        }
+      }
+      };
+
+      promptAnswerLeft = () => {
+        var myGuess=prompt("Enter the missing number");
+        if(myGuess == null)
+        {
+          alert("You did not submit a guess.");
+        }
+        else 
+        {
+          if (myGuess === this.left.toString())
+          {
+            alert("Congrats, "+ myGuess +" is this missing number!");
+          }
+          else
+          {
+            if(myGuess === "")
+            {
+              alert("You did not enter a number.");
+            }
+            else 
+            {
+              alert("Sorry, " + myGuess + " is not this missing number. Try again.");
+            }
+          }
+        }
+        };
+
+        promptAnswerRight = () => {
+          var myGuess=prompt("Enter the missing number");
+          if(myGuess == null)
+          {
+            alert("You did not submit a guess.");
+          }
+          else 
+          {
+            if (myGuess === this.right.toString())
+            {
+              alert("Congrats, "+ myGuess +" is this missing numbers!");
+            }
+            else
+            {
+              if(myGuess === "")
+              {
+                alert("You did not enter a number.");
+              }
+              else 
+              {
+                alert("Sorry, " + myGuess + " is not this missing number. Try again.");
+              }
+            }
+          }
+          };
 
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
