@@ -10,10 +10,10 @@ class CompleteTableGame extends Component {
     this.state = {
       rowVal: 10,
       colVal: 10,
-      userGuessAbove: null,
-      userGuessBelow: null,
-      userGuessRight: null,
-      userGuessLeft: null
+      //userGuessAbove: null,
+     // userGuessBelow: null,
+      //userGuessRight: null,
+     // userGuessLeft: null
     };
 
     this.handleRowChange = this.handleRowChange.bind(this);
@@ -38,7 +38,7 @@ class CompleteTableGame extends Component {
     this.setState({ colVal: event.target.value });
   }
 
-  handleUserGuessAbove(event) {
+  /*handleUserGuessAbove(event) {
     this.renderBool = false;
     this.setState({ userGuessAbove: event.target.value });
     // event.preventDefault();
@@ -59,7 +59,7 @@ class CompleteTableGame extends Component {
     // event.preventDefault();
   }
 
-  handleSubmit(event) {
+  /*handleSubmit(event) {
     var userGuessAboveNum = parseInt(this.state.userGuessAbove, 10);
     var userGuessBelowNum = parseInt(this.state.userGuessBelow, 10);
     var userGuessLeftNum = parseInt(this.state.userGuessLeft, 10);
@@ -101,7 +101,7 @@ class CompleteTableGame extends Component {
     // document.write(this.rand);
     // document.write(this.state.userGuess);
     event.preventDefault();
-  }
+  }*/
 
   shouldComponentUpdate(nextProps, nextState) {
     if (this.renderBool === false) {
@@ -174,18 +174,44 @@ class CompleteTableGame extends Component {
       let children = [];
       for (let j = 1; j < this.state.colVal + 1; j++) {
         if (j <= this.state.colVal) {
-          if (
-            (colNum * i + j === this.above) |
-            (colNum * i + j === this.below) |
-            (colNum * i + j === this.left) |
-            (colNum * i + j === this.right)
-          ) {
+
+          if ((colNum * i + j === this.above))
+          {
             children.push(
-              <td id="cell" caption="missing number" class="missingNumber">
-                ?
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerAbove}>?</button>
               </td>
             );
-          } else {
+          }
+          else if ((colNum * i + j === this.below))
+          {
+            children.push(
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerBelow}>?</button>
+              </td>
+            );
+          }
+
+          else if ((colNum * i + j === this.left))
+          {
+            children.push(
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerLeft}>?</button>
+              </td>
+            );
+          }
+          
+          else if ((colNum * i + j === this.right))
+          {
+            children.push(
+              <td id="cell" caption="missing number" class="missingNumber"> 
+                <button onClick={this.promptAnswerRight}>?</button>
+              </td>
+            );
+          }
+
+          else 
+          {
             children.push(<td id="cell">{colNum * i + j}</td>);
           }
         }
@@ -196,13 +222,117 @@ class CompleteTableGame extends Component {
     return table;
   };
 
+  promptAnswerAbove = () => {
+    var myGuess=prompt("Enter the missing number");
+    if(myGuess == null)
+    {
+      alert("You did not submit a guess.");
+    }
+    else 
+    {
+      if (myGuess === this.above.toString())
+      {
+        alert("Congrats, "+ myGuess +" is this missing number!");
+      }
+      else
+      {
+        if(myGuess === "")
+        {
+          alert("You did not enter a number.");
+        }
+        else 
+        {
+          alert("Sorry, " + myGuess + " is not this missing number. Try again.");
+        }
+      }
+    }
+    };
+
+    promptAnswerBelow = () => {
+      var myGuess=prompt("Enter the missing number");
+      if(myGuess == null)
+      {
+        alert("You did not submit a guess.");
+      }
+      else 
+      {
+        if (myGuess === this.below.toString())
+        {
+          alert("Congrats, "+ myGuess +" is this missing number!");
+        }
+        else
+        {
+          if(myGuess === "")
+          {
+            alert("You did not enter a number.");
+          }
+          else 
+          {
+            alert("Sorry, " + myGuess + " is not this missing number. Try again.");
+          }
+        }
+      }
+      };
+
+      promptAnswerLeft = () => {
+        var myGuess=prompt("Enter the missing number");
+        if(myGuess == null)
+        {
+          alert("You did not submit a guess.");
+        }
+        else 
+        {
+          if (myGuess === this.left.toString())
+          {
+            alert("Congrats, "+ myGuess +" is this missing number!");
+          }
+          else
+          {
+            if(myGuess === "")
+            {
+              alert("You did not enter a number.");
+            }
+            else 
+            {
+              alert("Sorry, " + myGuess + " is not this missing number. Try again.");
+            }
+          }
+        }
+        };
+
+        promptAnswerRight = () => {
+          var myGuess=prompt("Enter the missing number");
+          if(myGuess == null)
+          {
+            alert("You did not submit a guess.");
+          }
+          else 
+          {
+            if (myGuess === this.right.toString())
+            {
+              alert("Congrats, "+ myGuess +" is this missing numbers!");
+            }
+            else
+            {
+              if(myGuess === "")
+              {
+                alert("You did not enter a number.");
+              }
+              else 
+              {
+                alert("Sorry, " + myGuess + " is not this missing number. Try again.");
+              }
+            }
+          }
+          };
+
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
     return (
       <div id="outer-div">
         <div id="inner-div">
           <table>
-            <caption id="title">Hundreds Chart</caption>
+            <caption id="title">Find the Missing Numbers</caption>
             {this.makeRandom()}
             {this.makeMissingNumbers()}
             {/* <label>{this.rand + "00"}</label>
@@ -212,6 +342,12 @@ class CompleteTableGame extends Component {
             <label>{this.right + "00"}</label> */}
             {this.createTable()}
           </table>
+
+          <div class="newGame">
+            <td class="newGameBtn" text-align="center" >
+              <a href="\completetablegame" class="newGameTxt">NEW GAME</a>
+            </td>
+          </div>
 
           <div class="diyTable">
             <label>
@@ -233,72 +369,7 @@ class CompleteTableGame extends Component {
               />
             </label>
           </div>
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessAbove}
-                // onChange={this.handleUserGuessAbove}
-              />
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessBelow}
-                // onChange={this.handleUserGuessBelow}
-              />
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessLeft}
-                // onChange={this.handleUserGuessLeft}
-              />
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessRight}
-                // onChange={this.handleUserGuessRight}
-              />
-              <input type="submit" value="Submit Guess" />
-            </form>
-            {/* <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessBelow}
-                onChange={this.handleUserGuessBelow}
-              />
-            </form>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessLeft}
-                onChange={this.handleUserGuessLeft}
-              />
-            </form>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="number"
-                class="inputBox"
-                pattern="[1-100]*"
-                value={this.state.userGuessRight}
-                onChange={this.handleUserGuessRight}
-              />
-              <input type="submit" value="Submit Guess" />
-            </form> */}
-          </div>
-          <div>
-            <td id="cell" text-align="center">
-              <a href="\completetablegame">NEW GAME</a>
-            </td>
-          </div>
+
         </div>
       </div>
     );
