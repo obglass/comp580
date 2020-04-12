@@ -103,6 +103,13 @@ class CompleteTableGame extends Component {
     event.preventDefault();
   }*/
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.renderBool === false) {
+      return false;
+    }
+    return true;
+  }
+
   makeRandom = () => {
     this.rand = Math.floor(
       Math.random() * (this.state.rowVal * this.state.colVal) + 1
@@ -362,8 +369,7 @@ class CompleteTableGame extends Component {
               />
             </label>
           </div>
-          
-          
+
         </div>
       </div>
     );

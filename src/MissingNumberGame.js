@@ -27,12 +27,14 @@ class MissingNumberGame extends Component {
   handleColChange(event) {
     this.setState({ colVal: event.target.value });
   }
-  handleUserGuess(event) {
+  
+  
+  
+  (event) {
     this.renderBool = false;
     this.setState({ userGuess: event.target.value });
     // event.preventDefault();
   }
-  
 
   shouldComponentUpdate(nextProps, nextState) {
     if (this.renderBool === false) {
@@ -114,6 +116,7 @@ class MissingNumberGame extends Component {
               </td>
             </div>
 
+         
           <div class="diyTable">
             <label>
               Rows:{" "}
@@ -136,7 +139,6 @@ class MissingNumberGame extends Component {
           </div>
         </div>
       </div>
-      
     );
   }
 }
