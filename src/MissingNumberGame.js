@@ -30,7 +30,7 @@ class MissingNumberGame extends Component {
   
   
   
-  (event) {
+  handleUserGuess(event) {
     this.renderBool = false;
     this.setState({ userGuess: event.target.value });
     // event.preventDefault();
@@ -115,28 +115,6 @@ class MissingNumberGame extends Component {
                 <a href="\missingnumbergame" class="newGameTxt">NEW GAME</a>
               </td>
             </div>
-
-         
-          <div class="diyTable">
-            <label>
-              Rows:{" "}
-              <input
-                type="text"
-                class="inputBox"
-                value={this.state.rowVal}
-                onChange={this.handleRowChange}
-              />{" "}
-            </label>
-            <label>
-              Columns:{" "}
-              <input
-                type="text"
-                class="inputBox"
-                value={this.state.colVal}
-                onChange={this.handleColChange}
-              />
-            </label>
-          </div>
         </div>
       </div>
     );

@@ -58,11 +58,15 @@ button{
   padding:0px;
   color:white;
   font-size:18px;
+  border:none;
 }
 
+.missingNumber {
+  background-color:black;
+}
 .newGame {
   padding:5px;
-  padding-left:35%;
+  padding-left:37%;
 }
 
 .newGameBtn {
@@ -97,9 +101,6 @@ button{
     width: 20px;
     height: 20px;
   }
- /* .diyTable {
-    font-size:20px;
-  }*/
   .guess {
     padding-top:10px;
   }
@@ -115,6 +116,9 @@ button{
     padding: 6px;
     width: 63px;
     height: 63px;
+    font-size:35px;
+  }
+  button{
     font-size:35px;
   }
   .diyTable {

@@ -230,6 +230,7 @@ class CompleteTableGame extends Component {
     }
     else 
     {
+      var ans=this.above.toString();
       if (myGuess === this.above.toString())
       {
         alert("Congrats, "+ myGuess +" is this missing number!");
@@ -348,28 +349,6 @@ class CompleteTableGame extends Component {
               <a href="\completetablegame" class="newGameTxt">NEW GAME</a>
             </td>
           </div>
-
-          <div class="diyTable">
-            <label>
-              Rows:{" "}
-              <input
-                type="text"
-                class="inputBox"
-                value={this.state.rowVal}
-                onChange={this.handleRowChange}
-              />{" "}
-            </label>
-            <label>
-              Columns:{" "}
-              <input
-                type="text"
-                class="inputBox"
-                value={this.state.colVal}
-                onChange={this.handleColChange}
-              />
-            </label>
-          </div>
-
         </div>
       </div>
     );
