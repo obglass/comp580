@@ -179,7 +179,7 @@ class CompleteTableGame extends Component {
           {
             children.push(
               <td id="cell" caption="missing number" class="missingNumber"> 
-                <button onClick={this.promptAnswerAbove}>?</button>
+                <button ref ={btnA => {this.btnA =btnA;}} id="above" onClick={this.promptAnswerAbove}>?</button>
               </td>
             );
           }
@@ -187,7 +187,7 @@ class CompleteTableGame extends Component {
           {
             children.push(
               <td id="cell" caption="missing number" class="missingNumber"> 
-                <button onClick={this.promptAnswerBelow}>?</button>
+                <button ref ={btnB => {this.btnB =btnB; }} class="below" onClick={this.promptAnswerBelow}>?</button>
               </td>
             );
           }
@@ -196,7 +196,7 @@ class CompleteTableGame extends Component {
           {
             children.push(
               <td id="cell" caption="missing number" class="missingNumber"> 
-                <button onClick={this.promptAnswerLeft}>?</button>
+                <button ref ={btnL => {this.btnL =btnL; }} class ="left" onClick={this.promptAnswerLeft}>?</button>
               </td>
             );
           }
@@ -205,7 +205,7 @@ class CompleteTableGame extends Component {
           {
             children.push(
               <td id="cell" caption="missing number" class="missingNumber"> 
-                <button onClick={this.promptAnswerRight}>?</button>
+                <button ref ={btnR => {this.btnR =btnR; }} class="right" onClick={this.promptAnswerRight}>?</button>
               </td>
             );
           }
@@ -218,7 +218,7 @@ class CompleteTableGame extends Component {
       }
       table.push(<tr id="indRow">{children}</tr>);
     }
-
+    //this.renderBool=false;
     return table;
   };
 
@@ -230,10 +230,14 @@ class CompleteTableGame extends Component {
     }
     else 
     {
-      var ans=this.above.toString();
       if (myGuess === this.above.toString())
       {
         alert("Congrats, "+ myGuess +" is this missing number!");
+       // this.setState({above:myGuess});
+       this.btnA.setAttribute("disabled","disabled");
+       //this.btn.style();
+       //this.btn.textContent(this.btn.data("text-swap"));
+      
       }
       else
       {
@@ -260,6 +264,7 @@ class CompleteTableGame extends Component {
         if (myGuess === this.below.toString())
         {
           alert("Congrats, "+ myGuess +" is this missing number!");
+          this.btnB.setAttribute("disabled","disabled");
         }
         else
         {
@@ -286,6 +291,7 @@ class CompleteTableGame extends Component {
           if (myGuess === this.left.toString())
           {
             alert("Congrats, "+ myGuess +" is this missing number!");
+            this.btnL.setAttribute("disabled","disabled");
           }
           else
           {
@@ -311,7 +317,8 @@ class CompleteTableGame extends Component {
           {
             if (myGuess === this.right.toString())
             {
-              alert("Congrats, "+ myGuess +" is this missing numbers!");
+              alert("Congrats, "+ myGuess +" is this missing number!");
+              this.btnR.setAttribute("disabled","disabled");
             }
             else
             {

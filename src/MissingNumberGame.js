@@ -59,7 +59,7 @@ class MissingNumberGame extends Component {
           if (this.state.colVal * i + j === this.rand) {
             children.push(
               <td id="cell" class="missingNumber">
-               <button onClick={this.promptAnswer}>?</button>
+               <button ref ={btn => {this.btnA =btn;}}onClick={this.promptAnswer}>?</button>
               </td>
             );
           } else {
@@ -83,6 +83,7 @@ class MissingNumberGame extends Component {
       if (myGuess === this.rand.toString())
       {
         alert("Congrats, "+ myGuess +" is the missing number!");
+        this.btn.setAttribute("disabled","disabled");
        
       }
       else
