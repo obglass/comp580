@@ -6,21 +6,13 @@
   </head>
 <body>
 <h1>Hello World !??? hiiiiiiii</h1>
-<p>I'm trying something yet again.</p>
+<p>I'm trying something yet againnnnnn.</p>
   <div>    
-      <button id="playButton">Play</button>
+      <button id="playButton">
+        <a href="src/index.js">
+          Play
+        </a>
+      </button>
   </div>
-<script>
-import React from "react";
-import ReactDOM from "react-dom";
-import AppControl from "src/AppControl";
- 
-   document.getElementById("playButton").addEventListener("click", callIndex);
-   function callIndex() {
-      alert("this is inside html");
-      ReactDOM.render(<AppControl />, document.getElementById("root"));
-    });
-  }
-</script>
 </body>
 </html>
