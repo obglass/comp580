@@ -1,6 +1,6 @@
 
 # Instructions
-This project is a math game geared towards blind children who are learning their numbers. These games are played best on an iOS device using VoiceOver set on tables. Our game includes several features such as “Table”, “Missing Number Game” and a “Complete the Table Game”. Here is a link to a video demonstrating how the app works on an iPad: [video demo] (https://youtu.be/i4fnhkTuVuI)
+This project is a math game geared towards blind children who are learning their numbers. These games are played best on an iOS device using VoiceOver set on tables. Our game includes several features such as “Table”, “Missing Number Game” and a “Complete the Table Game”. Here is a link to a video demonstrating how the app works on an iPad: https://youtu.be/i4fnhkTuVuI
 ## Table
 “Table” allows blind children to swipe through the 100 Grid in order to get their bearings and be able to spatially gain familiarity with the number grid. The user can also change the amount of rows and columns to be able to master other grid sizes. 
 ## Missing Number Game
