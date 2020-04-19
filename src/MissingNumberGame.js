@@ -59,7 +59,7 @@ class MissingNumberGame extends Component {
           if (this.state.colVal * i + j === this.rand) {
             children.push(
               <td id="cell" class="missingNumber">
-               <button ref ={btn => {this.btnA =btn;}}onClick={this.promptAnswer}>?</button>
+               <button ref ={btn => {this.btn =btn;}} onClick={this.promptAnswer}>?</button>
               </td>
             );
           } else {
