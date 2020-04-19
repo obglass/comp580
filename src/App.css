@@ -121,6 +121,8 @@ button{
   }
   button{
     font-size:35px;
+    height:60px;
+    width:60px;
   }
   .diyTable {
     font-size:25px;
