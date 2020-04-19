@@ -10,6 +10,7 @@ import CompleteTableGame from "./CompleteTableGame";
 
 class AppControl extends Component {
    document.getElementById("playButton").addEventListener("click", () => {
+     alert();
      render();
   });
 
