@@ -6,9 +6,22 @@
   </head>
 <body>
 <h1>Hello World !??? hiiiiiiii</h1>
-<p>I'm trying something.</p>
+<p>I'm trying something newwww.</p>
   <div>    
       <button id="playButton">Play</button>
   </div>
 </body>
 </html>
+<script>
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
+import AppControl from "./AppControl";
+  function callIndex() {
+    document.getElementById("playButton").addEventListener("click", () => {
+      alert("this is inside html");
+      ReactDOM.render(<AppControl />, document.getElementById("root"));
+    });
+  }
+</script>
