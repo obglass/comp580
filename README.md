@@ -1,4 +1,4 @@
-GitHub Pages Link: https://obglass.github.io/
+GitHub Pages Link: https://obglass.github.io/comp580/
 # Instructions
 This project is a math game geared towards blind children who are learning their numbers. These games are played best on an iOS device using VoiceOver. Click here for more information about VO https://www.apple.com/voiceover/info/guide/_1137.html or use the built in tutial when you turn VO on. The main gesture you need for our game is Rotor, which can be accessed by turning two fingers on the screen as if turning a dial. You will need to set it to "rows" in order to swipe up and down on the table. Our game includes several features such as “Table”, “Missing Number Game” and a “Complete the Table Game”. Here is a link to a video demonstrating how the app works on an iPad: https://youtu.be/i4fnhkTuVuI
 ## Table
