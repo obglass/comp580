@@ -255,7 +255,7 @@
             l.a.createElement(
               "p",
               null,
-              "Please navigate to the Home tab begin!"
+              "Please navigate to the Home tab to begin!"
             )
           );
         },
