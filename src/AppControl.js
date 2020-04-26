@@ -19,7 +19,7 @@ class AppControl extends Component {
             <Route path="/table" component={Table} />
             <Route path="/missingnumbergame" component={MissingNumberGame} />
             <Route path="/completetablegame" component={CompleteTableGame} />
-            <Route component={Error} />
+            <Route component={Home} />
           </Switch>
         </div>
       </BrowserRouter>
