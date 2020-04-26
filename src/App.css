@@ -35,6 +35,12 @@
   padding: 10px;
 }
 
+#newGame {
+  color: white;
+  display: inline-block;
+  padding: 5px;
+}
+
 #navbar {
   background-color: grey;
   width: 100%;

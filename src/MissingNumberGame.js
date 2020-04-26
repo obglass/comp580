@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import { Component } from "react";
+// import { NavLink } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 class MissingNumberGame extends Component {
   constructor(props) {
@@ -27,9 +29,7 @@ class MissingNumberGame extends Component {
   handleColChange(event) {
     this.setState({ colVal: event.target.value });
   }
-  
-  
-  
+
   handleUserGuess(event) {
     this.renderBool = false;
     this.setState({ userGuess: event.target.value });
@@ -59,7 +59,14 @@ class MissingNumberGame extends Component {
           if (this.state.colVal * i + j === this.rand) {
             children.push(
               <td id="cell" class="missingNumber">
-               <button ref ={btn => {this.btn =btn;}} onClick={this.promptAnswer}>?</button>
+                <button
+                  ref={btn => {
+                    this.btn = btn;
+                  }}
+                  onClick={this.promptAnswer}
+                >
+                  ?
+                </button>
               </td>
             );
           } else {
@@ -73,32 +80,22 @@ class MissingNumberGame extends Component {
   };
 
   promptAnswer = () => {
-    var myGuess=prompt("Enter the missing number");
-    if(myGuess == null)
-    {
+    var myGuess = prompt("Enter the missing number");
+    if (myGuess == null) {
       alert("You did not submit a guess.");
-    }
-    else 
-    {
-      if (myGuess === this.rand.toString())
-      {
-        alert("Congrats, "+ myGuess +" is the missing number!");
-        this.btn.setAttribute("disabled","disabled");
-       
-      }
-      else
-      {
-        if(myGuess === "")
-        {
+    } else {
+      if (myGuess === this.rand.toString()) {
+        alert("Congrats, " + myGuess + " is the missing number!");
+        this.btn.setAttribute("disabled", "disabled");
+      } else {
+        if (myGuess === "") {
           alert("You did not enter a number.");
-        }
-        else 
-        {
+        } else {
           alert("Sorry, " + myGuess + " is not the missing number. Try again.");
         }
       }
     }
-    };
+  };
 
   render() {
     //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
@@ -111,11 +108,16 @@ class MissingNumberGame extends Component {
             {this.createTable()}
           </table>
 
-            <div class="newGame">
-              <td class="newGameBtn" text-align="center" >
-                <a href="\missingnumbergame" class="newGameTxt">NEW GAME</a>
-              </td>
-            </div>
+          <div class="newGame">
+            <td class="newGameBtn" text-align="center">
+              {/* <a href="/missingnumbergame" class="newGameTxt">
+                NEW GAME
+              </a> */}
+              <NavLink id="newGame" to="/missingnumbergame">
+                NEW GAME
+              </NavLink>
+            </td>
+          </div>
         </div>
       </div>
     );
