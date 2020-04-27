@@ -1,10 +1,10 @@
 TITLE:
 
-  Hundreds Chart 
+  Grid Games 
 
 DESCRIPTION:
 
-  Hundreds Chart is a browser-based math game best played on an iOS device with VoiceOver. It  includes a hundreds chart with the ability to change how many rows and columns in order for users to understand how number charts work. It also includes two games: find the missing number and complete the table. In Find the Missing Number game, one number in the hundreds chart is missing and they must find out what number it is. In the Complete the Table game, two, three, or four numbers are missing (around a central number) and the user must figure out all of them.
+ Grid Games is a browser-based math game best played on an iOS device with VoiceOver. It  includes a hundreds chart with the ability to change how many rows and columns in order for users to understand how number charts work. It also includes two games: find the missing number and complete the table. In Find the Missing Number game, one number in the hundreds chart is missing and they must find out what number it is. In the Complete the Table game, two, three, or four numbers are missing (around a central number) and the user must figure out all of them.
 
 INTENDED AUDIENCE:
 
@@ -24,4 +24,4 @@ PROBLEMS ENCOUNTERED:
 
 FUTURE WORK: 
 
-  In the future, developers could look into touch events to have a gesture jump to the missing number, so the user doesn’t have to swipe through the entire chart to get to it. Future development can also gamify it a bit more by adding a storyline, such as an animal stole the number and the user must get it back. 
+  In the future, developers could look into touch events to have a gesture jump to the missing number, so the user doesn’t have to swipe through the entire chart to get to it. Future development can also gamify it a bit more by adding a storyline, such as an animal stole the number and the user must get it back. It could also incorporate more games, such as find a missing number and one more than it, missing number and ten more than it, the possibilies are endless!
