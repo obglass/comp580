@@ -16,7 +16,7 @@
 
 ## HOW TO BUILD AND DEPLOY: 
 
-  To build, we called npm build, then copied that over to a branch called gh-pages and deleted everything except the contents of the build folder. Then, we used GitHub to call GitHub Pages from the gh-pages branch.
+  To build, we called npm run build, then copied that over to a branch called gh-pages and deleted everything except the contents of the build folder. Then, we used GitHub to call GitHub Pages from the gh-pages branch.
 
 ## PROBLEMS ENCOUNTERED:
 
