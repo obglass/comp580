@@ -2,7 +2,7 @@
 
   Grid Games 
 
-##DESCRIPTION:
+## DESCRIPTION:
 
  Grid Games is a browser-based math game best played on an iOS device with VoiceOver. It  includes a hundreds chart with the ability to change how many rows and columns in order for users to understand how number charts work. It also includes two games: find the missing number and complete the table. In Find the Missing Number game, one number in the hundreds chart is missing and they must find out what number it is. In the Complete the Table game, two, three, or four numbers are missing (around a central number) and the user must figure out all of them.
 
