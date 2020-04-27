@@ -8,11 +8,11 @@
 
 ## INTENDED AUDIENCE:
 
-  Hundreds Chart is intended for young blind children who are learning their numbers and how to count by tens. It can also be used by visual children as well, but intended for visually impaired and blind children. 
+  Grid Games is intended for young blind children who are learning their numbers and how to count by tens. It can also be used by visual children as well, but intended for visually impaired and blind children. 
 
 ## TECHNOLOGIES, FRAMEWORKS, LIBRARIES:
 
-  We created the Hundreds Chart using React JS. We also incorporated some elements from React Bootstrap for style. We used npm from Node to manage and run the code. As stated in the description, this game is meant to be used in conjunction with iOS’s VoiceOver
+  We created Grid Games using React JS. We also incorporated some elements from React Bootstrap for style. We used npm from Node to manage and run the code. As stated in the description, this game is meant to be used in conjunction with iOS’s VoiceOver
 
 ## HOW TO BUILD AND DEPLOY: 
 
